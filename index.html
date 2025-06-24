@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FG TecnoShop Líder en Tecnología</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FG TecnoShop <span style="font-size:1.1rem;font-weight:400;">Líder en Tecnología</span></h1>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="https://wa.me/1234567890" target="_blank" class="whatsapp-btn">WhatsApp</a></li>
+                    <li>
+                        <button id="carrito-btn" aria-label="Carrito" class="carrito-icon">
+                            <span>🛒</span>
+                            <span id="carrito-contador" class="carrito-contador">0</span>
+                        </button>
+                    </li>
+                    <li class="menu-toggle">
+                        <button id="menu-toggle-btn" aria-label="Menú">&#9776;</button>
+                    </li>
+                </ul>
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const menuBtn = document.getElementById('menu-toggle-btn');
+                    const navList = document.querySelector('.nav-list');
+                    if(menuBtn && navList) {
+                        menuBtn.onclick = function() {
+                            navList.classList.toggle('nav-open');
+                        };
+                    }
+                });
+                </script>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- Login Admin -->
+        <section id="admin-login" class="admin-login oculto">
+            <div class="container">
+                <div style="display:flex;align-items:center;gap:16px;justify-content:space-between;">
+                    <button id="btn-acceso-admin" class="cta-btn" style="font-size:1.2rem;padding:10px 24px;">Acceso Administrador</button>
+                </div>
+                <form id="login-form" style="display:none; margin-top:18px;">
+                    <label for="admin-usuario">Usuario:</label>
+                    <input type="text" id="admin-usuario" required autocomplete="username">
+                    <label for="admin-password">Contraseña:</label>
+                    <input type="password" id="admin-password" required autocomplete="current-password">
+                    <button type="submit" class="cta-btn">Entrar</button>
+                    <div id="login-error" style="color:#e74c3c;margin-top:10px;display:none;">Usuario o contraseña incorrectos</div>
+                </form>
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var btn = document.getElementById('btn-acceso-admin');
+                    var form = document.getElementById('login-form');
+                    if(btn && form) {
+                        btn.onclick = function(e) {
+                            e.preventDefault();
+                            btn.style.display = 'none';
+                            form.style.display = 'block';
+                        };
+                    }
+                // Mostrar panel admin tras login exitoso
+                var adminPanel = document.getElementById('admin-panel');
+                var adminLogin = document.getElementById('admin-login');
+                var loginForm = document.getElementById('login-form');
+                var loginError = document.getElementById('login-error');
+
+                if (loginForm) {
+                    loginForm.onsubmit = function(e) {
+                        e.preventDefault();
+                        var user = document.getElementById('admin-usuario').value;
+                        var pass = document.getElementById('admin-password').value;
+                        // Cambia estos valores por los correctos
+                        if (user === 'admin' && pass === 'admin123') {
+                            adminLogin.classList.add('oculto');
+                            adminPanel.classList.remove('oculto');
+                            loginError.style.display = 'none';
+                        } else {
+                            loginError.style.display = 'block';
+                        }
+                    };
+
+                    };
+                    // Elimina el botón de acceso administrador después de mostrar el formulario
+                    if (btn) {
+                        btn.parentNode.removeChild(btn);
+                    }
+
+                    btnsDiv.appendChild(btnArticulos);
+                    btnsDiv.appendChild(btnCerrar);
+
+                    // Insertar los botones antes del h2
+                    var h2 = container.querySelector('h2');
+                    container.insertBefore(btnsDiv, h2);
+            });
+                </script>
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var btn = document.getElementById('btn-acceso-admin');
+                    var form = document.getElementById('login-form');
+                    if(btn && form) {
+                        btn.onclick = function(e) {
+                            e.preventDefault();
+                            btn.style.display = 'none';
+                            form.style.display = 'block';
+                        };
+                    }
+                // Mostrar panel admin tras login exitoso
+                var adminPanel = document.getElementById('admin-panel');
+                var adminLogin = document.getElementById('admin-login');
+                var loginForm = document.getElementById('login-form');
+                var loginError = document.getElementById('login-error');
+
+                if (loginForm) {
+                    loginForm.onsubmit = function(e) {
+                        e.preventDefault();
+                        var user = document.getElementById('admin-usuario').value;
+                        var pass = document.getElementById('admin-password').value;
+                        // Cambia estos valores por los correctos
+                        if (user === 'admin' && pass === 'admin123') {
+                            adminLogin.classList.add('oculto');
+                            adminPanel.classList.remove('oculto');
+                            loginError.style.display = 'none';
+                        } else {
+                            loginError.style.display = 'block';
+                        }
+                    };
+                }
+
+                // Agregar botones en el panel admin
+                if (adminPanel) {
+                    var container = adminPanel.querySelector('.container');
+                    var btnsDiv = document.createElement('div');
+                    btnsDiv.style.display = 'flex';
+                    btnsDiv.style.gap = '16px';
+                    btnsDiv.style.marginBottom = '18px';
+
+                    // Botón Administración de Artículos
+                    var btnArticulos = document.createElement('button');
+                    btnArticulos.textContent = 'Administración de Artículos';
+                    btnArticulos.className = 'cta-btn';
+                    btnArticulos.onclick = function() {
+                        // Aquí puedes agregar lógica para mostrar la sección de artículos si tienes más secciones
+                        document.getElementById('admin-articulos').scrollIntoView({behavior: 'smooth'});
+                    };
+                    // Insertar los botones antes del h2
+                    var h2 = container.querySelector('h2');
+                    container.insertBefore(btnsDiv, h2);
+                }
+            });
+                </script>
+            </div>
+        </section>
+        <!-- Panel Admin -->
+        <section id="admin-panel" class="admin-panel oculto">
+            <div class="container">
+
+                <div id="admin-articulos">
+                    <!-- Lista editable de artículos -->
+                </div>
+                            </div>
+        </section>
+        <section class="hero">
+            <div class="container">
+                <h2>Los mejores artículos tecnológicos a un clic</h2>
+                <p>Smartphones, laptops, accesorios y más. Compra fácil, rápido y seguro.</p>
+                <a href="#catalogo" class="cta-btn">Ver catálogo</a>
+            </div>
+        </section>
+        <section id="catalogo" class="catalogo">
+            <div class="container">
+                <h2>Catálogo de Productos</h2>
+                <div class="categorias">
+                    <button class="categoria-btn active" data-categoria="todos">Todos</button>
+                    <button class="categoria-btn" data-categoria="smartphones">Smartphones</button>
+                    <button class="categoria-btn" data-categoria="laptops">Laptops</button>
+                    <button class="categoria-btn" data-categoria="accesorios">Accesorios</button>
+                    <button class="categoria-btn" data-categoria="Sonido">Sonido</button>
+                    <button class="categoria-btn" data-categoria="Camaras">Camaras</button>
+                    <button class="categoria-btn" data-categoria="Perisfericos">Perisfericos</button>
+                    <button class="categoria-btn" data-categoria="Hogar">Hogar</button>
+                    <button class="categoria-btn" data-categoria="Proyectores">Proyectores</button>
+                    <button class="categoria-btn" data-categoria="Relojes Inteligentes">Relojes Inteligentes</button>
+                </div>
+                <div class="productos" id="productos-lista">
+                    <!-- Productos se cargarán aquí -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Modal Detalle Producto -->
+    <div id="modal-producto" class="modal-producto oculto">
+        <div class="modal-contenido">
+            <button class="cerrar-modal" id="cerrar-modal-producto">&times;</button>
+            <div id="modal-producto-info">
+                <!-- Detalles del producto se cargan aquí -->
+            </div>
+        </div>
+    </div>
+    <!-- Panel Carrito -->
+    <style>
+        footer {
+            padding: 10px 0 60px 0; /* Espacio inferior para la barra fija */
+        }
+        .custom-bottom-bar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+            background: linear-gradient(90deg,#0f2027,#2c5364);
+            border-top: 2px solid #00c853;
+            box-shadow: 0 -2px 12px rgba(44,83,100,0.12);
+            padding: 6px 0 4px 0; /* Reduce altura */
+        }
+        .custom-bottom-bar > div {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .custom-bottom-bar span,
+        .custom-bottom-bar button,
+        .custom-bottom-bar a {
+            font-size: 0.95rem !important;
+        }
+        @media (max-width: 600px) {
+            .custom-bottom-bar > div {
+                gap: 4px;
+            }
+            .custom-bottom-bar span {
+                font-size: 0.90rem !important;
+            }
+        }
+    </style>
+    <div id="carrito-panel" class="carrito-panel oculto">
+        <div class="carrito-header">
+            <h3>Carrito de Compras</h3>
+            <button class="cerrar-carrito" id="cerrar-carrito">&times;</button>
+        </div>
+        <div id="carrito-items">
+            <!-- Productos del carrito -->
+        </div>
+        <div class="carrito-footer">
+            <div class="carrito-total">Total: $<span id="carrito-total">0</span></div>
+            <a id="carrito-whatsapp" href="https://wa.me/3508067348" target="_blank" class="cta-btn" style="display:flex;align-items:center;justify-content:center;gap:8px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" style="width:24px;height:24px;vertical-align:middle;">
+                Pagar por WhatsApp
+            </a>
+        </div>
+    </div>
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/3508067348" class="whatsapp-float" target="_blank" aria-label="WhatsApp Directo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:38px;height:38px;">
+    </a>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FG TecnoShop Líder en Tecnología. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- Barra inferior personalizada -->
+    <div style="position:fixed;left:0;right:0;bottom:0;z-index:999;background:linear-gradient(90deg,#0f2027,#2c5364);border-top:2px solid #00c853;box-shadow:0 -2px 12px rgba(44,83,100,0.12);padding:12px 0;">
+        <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <span style="font-weight:700;font-size:1.05rem;text-align:center;color:#fff;letter-spacing:1px;text-shadow:0 1px 4px rgba(0,0,0,0.18);">
+                👋 ¡Hola! Soy Fredy, creador de FG TecnoShop.<br>
+                <span style="font-weight:400;font-size:0.97rem;color:#b2ff59;">¿Tienes dudas o buscas asesoría personalizada? ¡Estoy aquí para ayudarte!</span>
+            </span>
+            <button id="enlaces-rapidos-btn" style="margin:12px 0 0 0;padding:8px 22px;font-size:1rem;font-weight:600;background:#00c853;color:#fff;border:none;border-radius:6px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:background 0.2s;">ENLACES RÁPIDOS</button>
+
+            <!-- Modal Enlaces Rápidos -->
+            <div id="enlaces-rapidos-modal" style="display:none;position:fixed;z-index:2000;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.38);align-items:center;justify-content:center;">
+                <div style="background:#fff;border-radius:12px;max-width:370px;width:90vw;padding:28px 22px;box-shadow:0 6px 32px rgba(44,83,100,0.18);position:relative;">
+                    <button id="cerrar-enlaces-modal" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#2c5364;">&times;</button>
+                    <h3 style="margin-top:0;text-align:center;color:#2c5364;font-size:1.25rem;">Enlaces Rápidos</h3>
+                    <ul style="list-style:none;padding:0;margin:22px 0 0 0;display:flex;flex-direction:column;gap:14px;">
+                        <li><a href="#" class="enlace-rapido" data-seccion="inicio" style="color:#00c853;font-weight:600;text-decoration:none;">Inicio</a></li>
+                        <li><a href="#" class="enlace-rapido" data-seccion="productos" style="color:#00c853;font-weight:600;text-decoration:none;">Productos</a></li>
+                        <li><a href="#" class="enlace-rapido" data-seccion="sobre" style="color:#00c853;font-weight:600;text-decoration:none;">Sobre Nosotros</a></li>
+                        <li><a href="#" class="enlace-rapido" data-seccion="terminos" style="color:#00c853;font-weight:600;text-decoration:none;">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Interfaz creativa de secciones -->
+            <div id="enlaces-descripcion" style="display:none;position:fixed;z-index:2100;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.38);align-items:center;justify-content:center;">
+                <div style="background:#fff;border-radius:12px;max-width:410px;width:95vw;padding:32px 24px;box-shadow:0 8px 36px rgba(44,83,100,0.22);position:relative;">
+                    <button id="cerrar-descripcion-modal" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#2c5364;">&times;</button>
+                    <div id="descripcion-contenido"></div>
+                </div>
+            </div>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Mostrar modal de enlaces rápidos
+                const btn = document.getElementById('enlaces-rapidos-btn');
+                const modal = document.getElementById('enlaces-rapidos-modal');
+                const cerrar = document.getElementById('cerrar-enlaces-modal');
+                const descModal = document.getElementById('enlaces-descripcion');
+                const descCerrar = document.getElementById('cerrar-descripcion-modal');
+                const descContenido = document.getElementById('descripcion-contenido');
+
+                if(btn && modal) {
+                    btn.onclick = () => { modal.style.display = 'flex'; };
+                }
+                if(cerrar && modal) {
+                    cerrar.onclick = () => { modal.style.display = 'none'; };
+                }
+                if(descCerrar && descModal) {
+                    descCerrar.onclick = () => { descModal.style.display = 'none'; };
+                }
+
+                // Descripciones creativas
+                const descripciones = {
+                    inicio: `<h4 style="color:#00c853;">🏠 Inicio</h4>
+                        <p>¡Bienvenido a FG TecnoShop! Tu punto de partida para descubrir lo último en tecnología, ofertas y novedades. Explora, compara y déjate sorprender.</p>`,
+                    productos: `<h4 style="color:#00c853;">🛍️ Productos</h4>
+                        <p>Descubre nuestro catálogo cuidadosamente seleccionado: smartphones, laptops, accesorios y mucho más. Calidad, garantía y variedad en un solo lugar.</p>`,
+                    sobre: `<h4 style="color:#00c853;">👨‍💻 Sobre Nosotros</h4>
+                        <p>Somos apasionados por la tecnología y el servicio. FG TecnoShop nació para acercar la innovación a tu vida, con atención personalizada y confianza.</p>`,
+                    terminos: `<h4 style="color:#00c853;">📜 Términos y Condiciones</h4>
+                        <p>Tu seguridad y satisfacción son nuestra prioridad. Consulta nuestras políticas de compra y privacidad para comprar con total tranquilidad.</p>`
+                };
+
+                // Abrir descripción creativa
+                document.querySelectorAll('.enlace-rapido').forEach(function(link) {
+                    link.onclick = function(e) {
+                        e.preventDefault();
+                        const seccion = this.getAttribute('data-seccion');
+                        if(descripciones[seccion]) {
+                            descContenido.innerHTML = descripciones[seccion];
+                            modal.style.display = 'none';
+                            descModal.style.display = 'flex';
+                        }
+                    };
+                });
+
+                // Cerrar modales al hacer click fuera
+                [modal, descModal].forEach(function(m) {
+                    if(m) {
+                        m.addEventListener('click', function(e) {
+                            if(e.target === m) m.style.display = 'none';
+                        });
+                    }
+                });
+            });
+            </script>
+            <div style="display:flex;gap:18px;">
+                <a href="https://facebook.com/" target="_blank" aria-label="Facebook" style="display:inline-block;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width:22px;height:22px;">
+                </a>
+                <a href="https://wa.me/3508067348" target="_blank" aria-label="WhatsApp" style="display:inline-block;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:22px;height:22px;">
+                </a>
+                <a href="https://instagram.com/" target="_blank" aria-label="Instagram" style="display:inline-block;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:22px;height:22px;">
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/catalogo.js"></script>
+    <script src="scripts/admin.js"></script>
+</body>
+</html>
